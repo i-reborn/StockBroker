@@ -1,8 +1,4 @@
 cherrypy
-zipfile
-csv
 redis
-json
-urllib.request
 datetime
 jinja2

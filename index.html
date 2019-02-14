@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Broker</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!-- Scripts -->
+    <script src="static/scripts/app.js"></script>
+</head>
+
+<body onload="searchItem()">
+    <h1>
+        <span class="blue">&lt;</span>Stock
+        <span class="blue">&gt;</span>
+        <span class="yellow">Broker</pan>
+    </h1>
+    <h2>Created by
+        <a href="" target="_blank">Anirban Samanta</a>
+    </h2>
+
+    <input class="containerInput" type="text" id="stockInput" onkeyup="searchItem()" placeholder="Search for names.." title="Type in a name">
+
+    <table class="container" id="stockTable">
+        <!-- Table headers -->
+        <thead>
+            <tr>
+                <th>
+                    <h1>Name</h1>
+                </th>
+                <th>
+                    <h1>Code</h1>
+                </th>
+                <th>
+                    <h1>High</h1>
+                </th>
+                <th>
+                    <h1>Open</h1>
+                </th>
+                <th>
+                    <h1>Low</h1>
+                </th>
+                <th>
+                    <h1>Close</h1>
+                </th>
+            </tr>
+        </thead>
+
+        <!-- For loop logic of jinja template -->
+
+        {% for stock in stockList %}
+
+        <!-- table rows -->
+        <tr>
+            <td>{{stock['Name']}}</td>
+            <td>{{stock['Code']}}</td>
+            <td>{{stock['High']}}</td>
+            <td>{{stock['Open']}}</td>
+            <td>{{stock['Low']}}</td>
+            <td>{{stock['Close']}}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+    <script>
+            function myFunction() {
+              // Declare variables
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("stockInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("stockTable");
+              tr = table.getElementsByTagName("tr");
+            
+              // Loop through all table rows, and hide those who don't match the search query
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+            </script>
+</body>
+
+</html>

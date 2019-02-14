@@ -17,6 +17,7 @@
 
 * Python version 3.7
 * pip version 18.1
+* redis
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install from the requirements page.
 

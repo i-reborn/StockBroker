@@ -1,7 +1,7 @@
 # StockBroker
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-##### Marketplace is a Python backend for a simple UrbanClap like marketplace.
+##### Stockbroker gives you an option to see the prices of stocks at one place.
 
 ## What it does
 

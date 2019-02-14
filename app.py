@@ -12,9 +12,7 @@ import json
 
 import urllib.request
 
-from datetime import date  
-
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 from jinja2 import Environment, FileSystemLoader
 

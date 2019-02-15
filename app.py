@@ -24,11 +24,7 @@ trim_blocks=True)
 
 # Create a redis client. This file is generally encrypted
 
-redisClient = redis.StrictRedis(host='localhost',
-
-                                port=6379,
-
-                                db=0)
+redisClient = redis.from_url(os.environ.get("REDIS_URL"))
        
 class Controller(object):
     @cherrypy.expose

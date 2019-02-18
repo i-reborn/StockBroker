@@ -20,8 +20,7 @@ from jinja2 import Environment, FileSystemLoader
 
 # GET CURRENT DIRECTORY
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
-env=Environment(loader=FileSystemLoader(CUR_DIR),
-trim_blocks=True)
+env=Environment(loader=FileSystemLoader(CUR_DIR),trim_blocks=True)
 
 
 # Create a redis client. This file is generally encrypted
@@ -30,9 +29,10 @@ redisClient = redis.StrictRedis(host=config.host,
 
                                 port=config.port,
 
-                                db=config.db,
+                                # user= config.db,
+                                db=config.db)#,
                                 
-                                password=config.password)
+                                # password=config.password)
        
 class Controller(object):
     @cherrypy.expose 

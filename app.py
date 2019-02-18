@@ -12,6 +12,8 @@ import json
 
 import urllib.request
 
+import config
+
 from datetime import date, datetime, timedelta
 
 from jinja2 import Environment, FileSystemLoader
@@ -24,14 +26,16 @@ trim_blocks=True)
 
 # Create a redis client. This file is generally encrypted
 
-redisClient = redis.StrictRedis(host='localhost',
+redisClient = redis.StrictRedis(host=config.host,
 
-                                port=6379,
+                                port=config.port,
 
-                                db=0)
+                                db=config.db,
+                                
+                                password=config.password)
        
 class Controller(object):
-    @cherrypy.expose
+    @cherrypy.expose 
     def index(self):
         template = env.get_template('index.html')
         # RENDER TEMPLATE PASSING IN DATA
@@ -59,7 +63,7 @@ class Controller(object):
 
         #This function gets today's date in required format
 
-        yesterday= date.today() - timedelta(1)
+        yesterday= date.today() #- timedelta(1)
 
         yesterday = yesterday.strftime("%d%m%y") 
 

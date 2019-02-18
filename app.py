@@ -25,13 +25,7 @@ env=Environment(loader=FileSystemLoader(CUR_DIR),trim_blocks=True)
 
 # Create a redis client. This file is generally encrypted
 
-redisClient = redis.StrictRedis(host=config.host,
-
-                                port=config.port,
-
-                                db=config.db,
-                                
-                                password=config.password)
+redisClient = redis.from_url(os.environ.get("REDIS_URL"))
        
 class Controller(object):
     @cherrypy.expose 

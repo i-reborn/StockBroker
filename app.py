@@ -29,10 +29,9 @@ redisClient = redis.StrictRedis(host=config.host,
 
                                 port=config.port,
 
-                                # user= config.db,
-                                db=config.db)#,
+                                db=config.db,
                                 
-                                # password=config.password)
+                                password=config.password)
        
 class Controller(object):
     @cherrypy.expose 
